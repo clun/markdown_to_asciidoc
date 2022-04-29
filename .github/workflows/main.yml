@@ -22,6 +22,8 @@ jobs:
       - name: Use Pandoc for conversion
         run: |
           pandoc -t asciidoc -f markdown README.md > README.asciidoc
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
           ls -l README.md 
           ls -l README.asciidoc
           
