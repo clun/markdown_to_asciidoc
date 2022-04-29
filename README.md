@@ -1,4 +1,5 @@
-This content has been built using [Reference Documentation ](https://plugins.jetbrains.com/plugin/17013-datastax-astra-db-explorer)
+Test
+
 
 ## A - Overview
 
