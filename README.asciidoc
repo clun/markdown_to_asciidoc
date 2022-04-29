@@ -1,0 +1,99 @@
+This content has been built using
+https://plugins.jetbrains.com/plugin/17013-datastax-astra-db-explorer[Reference
+Documentation]
+
+== A - Overview
+
+Astra DB is a serverless NoSQL database as a service, built on Apache
+Cassandra (tm). Navigate, insert and edit data in your Astra DB without
+coding, directly in your favorite JetBrains IDE using this plugin from
+DataStax. This plugin also works with open source Apache Cassandra 4.0
+once a Stargate Data API gateway has been configured.
+
+== B - Prerequisites
+
+* You should have an http://astra.datastax.com/[Astra account]
+* You should link:/pages/astra/create-instance/[Create and Astra
+Database]
+* You should link:/pages/astra/create-token/[Have an Astra Token]
+* You should download either Community or ultimate edition of intelliJ
+from
+https://www.jetbrains.com/idea/download/?fromIDE=#section=mac[Download
+Page]
+
+== C - Installation Guide
+
+=== ✅ 1. Download Plugin
+
+________________________________________________________________________________________________________
+_https://github.com/datastax/astra-ide-plugin/wiki/Getting-Started[Astra
+DB Explorer Installation Page]_
+________________________________________________________________________________________________________
+
+* Open the plugin panel and search for `astra`
+
+....
+File > Preferences > Plugins
+....
+
+* Click the `[INSTALL]` button
+
+image:https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin.png[my-pic]
+
+* Once the plugin is downloaded and installed you will be asked to
+restart
+
+image:https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img//plugin-restart-ide.png[my-pic]
+
+=== ✅ 2. Setup Plugin
+
+* During the first restart you will got an `IDE error occured` message
+it is expected we will now configure the plugin
+
+image:https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-restart-error.png[my-pic]
+
+image:https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-restart-error2.png[my-pic]
+
+* The plugin configuration is defined in a file on disk located at
+`${user.home}/.astra/config`. Fortunately you can do it directly in the
+IDE
+* In the bottom left hand corner locate the panel `astra.explorer` and
+open it
+
+image:https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-1.png[my-pic]
+
+=== ✅ 3. Edit Profiles
+
+* In the drop down menu select `Edit Profiles` the configuration file is
+referred as a profile
+
+image:https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-2.png[my-pic]
+
+* You will be asked if you want to create the file, click `[CREATE]`
+
+image:https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-3.png[my-pic]
+
+* Also pick the first option in the radio button _Edit this file anyway_
+
+image:https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-4.png[my-pic]
+
+* The file open and the content should look like. Not that the value
+used for the `bearerToken` is the one starting by `AstraCS:....`. Save
+the file
+
+....
+
+[astraProfileFile.profiles]
+default = "AstraCS:XXXX"
+....
+
+=== ✅ 4. Reload Profiles
+
+* Now on the drop down menu select `Reload Profiles`
+
+image:https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-5.png[my-pic]
+
+* Et voila you can now list databases on your Astra organization and for
+each you can see the different keyspaces
+
+image:https://github.com/datastaxdevs/awesome-astra/raw/main/intellij/img/plugin-setup-6.png[my-pic]
