@@ -1,6 +1,4 @@
-This content has been built using
-https://plugins.jetbrains.com/plugin/17013-datastax-astra-db-explorer[Reference
-Documentation]
+Test
 
 == A - Overview
 
