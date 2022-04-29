@@ -10,22 +10,24 @@ jobs:
   convert-to-ascii_doc:
     runs-on: ubuntu-latest
     steps:
-      - name: Install Pandocs
+    
       - uses: actions/checkout@v3
-         with:
-          persist-credentials: false
-          fetch-depth: 0
+      - name: Use Pandoc for conversion
         run: |
-          sudo apt-get install -y pandoc
           pandoc -t asciidoc -f markdown README.md > README.asciidoc
-          git config user.name github-actions[bot]
-          git config user.email github-actions[bot]@users.noreply.github.com
-      
-      - name: Push changes
+          ls -s README.asciidoc
+          
+      - name: Setup git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git add README.asciidoc
+          git commit -m "Update ascii docs"
+          
+      - name: Push
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-      - uses: fastify/github-action-merge-dependabot@v2.1.1
-        with:
-          github-token: ${{ secrets.PANDOC_TOKEN }}
+        
+          
+    
