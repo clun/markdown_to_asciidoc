@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  convert-to-ascii_doc:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +19,16 @@ jobs:
         run: sudo apt-get install -y pandoc
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Use Pandoc for conversion
         run: |
           pandoc -t asciidoc -f markdown README.md > README.asciidoc
-          echo test, and deploy your project.
+          ls -l README.md 
+          ls -l README.asciidoc
+          
+      - name: Commit new files
+        run: |
+          # Stage the file, commit and push
+          git add README.asciidoc
+          git commit -m "Update ascii docs"
+          git push origin master
+          
