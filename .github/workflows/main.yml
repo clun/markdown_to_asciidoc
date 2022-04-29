@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
@@ -22,14 +21,15 @@ jobs:
       - name: Use Pandoc for conversion
         run: |
           pandoc -t asciidoc -f markdown README.md > README.asciidoc
+          ls -s README.asciidoc
+          
+      - name: Setup git
+        run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
-          ls -l README.md 
-          ls -l README.asciidoc
           
-      - name: Commit new files
+      - name: commit
         run: |
-          # Stage the file, commit and push
           git add README.asciidoc
           git commit -m "Update ascii docs"
           git push origin master
